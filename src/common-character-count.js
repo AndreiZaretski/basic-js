@@ -17,14 +17,34 @@ function getCommonCharacterCount(s1, s2) {
 
   let arr1 = s1.split('');
   let arr2 = s2.split('');
-  let count = 0;
+  // let count = 0;
 
-  for(i=0; i<arr1.length; i++) {
-   for(j=0; j<arr2.length; j++) {
-    if (arr1[i]==arr2[j]) count++;
-   }
-  }
-  return count
+  // for(i=0; i<arr1.length; i++) {
+  //  for(j=0; j<arr2.length; j++){
+  //   if (arr1[i]===arr2[j]) {count += 1; continue; }
+  // }
+  
+  // }
+  
+  // return count
+
+  arr1.sort();
+  arr2.sort();
+
+  let i = arr1.length,
+      j =arr2.length,
+      arr3 = [];
+
+      while (i>0 && j>0) {
+        i--;
+        j--;
+        if (arr1[i]> arr2[j]) j++;
+        else if (arr1[i]<arr2[j]) i++;
+        else arr3.push(arr1[i]);
+      }
+
+      return arr3.length;
+
 }
 
 module.exports = {
