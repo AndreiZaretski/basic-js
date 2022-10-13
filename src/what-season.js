@@ -31,17 +31,19 @@ try {
 
   let month= date.getMonth();
   
-  if( month === 11||0||1||00||01) {res = 'winter';
-  return res}
-  else if (month === 2||3||4||02||03||04) {res = 'spring';
-  return res}
-  else if (month ===5||6||7||05||06||07) {res ='summer';
-  return res}
-  else if (month === 8||9||10||08||09){res = 'autumn';
-  return res}
-  else if (typeof(month) != Number) {res = 'Invalid date!'; return res}
+  // if( month === 11||0||1||00||01) {res = 'winter';
+  // return res}
+  // else if (month === 2||3||4||02||03||04) {res = 'spring';
+  // return res}
+  // else if (month ===5||6||7||05||06||07) {res ='summer';
+  // return res}
+  // else if (month === 8||9||10||08||09){res = 'autumn';
+  // return res}
+  // else if (typeof(month) != Number) {res = 'Invalid date!'; return res}
+  let sesons = ['winter','winter','spring','spring','spring', 
+  'summer','summer','summer','autumn','autumn','autumn','winter']
 
-  
+  res = sesons[month];
 return res;
   
 }
