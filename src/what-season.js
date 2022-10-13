@@ -14,35 +14,35 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getSeason(date) {
   // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
-  let res;
+//   let res;
 
-  if (!date) {
-    return 'Unable to determine the time of year!';
- }
-  if (Object.keys(date).length > 0) {
-  throw new Error('Invalid date!');
-}
+//   if (!date) {
+//     return 'Unable to determine the time of year!';
+//  }
+//   if (Object.keys(date).length > 0) {
+//   throw new Error('Invalid date!');
+// }
 
-try {
-  date.getMonth()
-} catch {
-  throw new Error('Invalid date!')
-}
+// try {
+//   date.getMonth()
+// } catch {
+//   throw new Error('Invalid date!')
+// }
 
-  let month= date.getMonth();
+//   let month= date.getMonth();
   
-  if( month === 11||0||1||00||01) {res = 'winter';
-  return res}
-  else if (month === 2||3||4||02||03||04) {res = 'spring';
-  return res}
-  else if (month ===5||6||7||05||06||07) {res ='summer';
-  return res}
-  else if (month === 8||9||10||08||09){res = 'autumn';
-  return res}
-  else if (typeof(month) != Number) {res = 'Invalid date!'; return res}
+//   if( month === 11||0||1||00||01) {res = 'winter';
+//   return res}
+//   else if (month === 2||3||4||02||03||04) {res = 'spring';
+//   return res}
+//   else if (month ===5||6||7||05||06||07) {res ='summer';
+//   return res}
+//   else if (month === 8||9||10||08||09){res = 'autumn';
+//   return res}
+//   else if (typeof(month) != Number) {res = 'Invalid date!'; return res}
 
   
-return res;
+// return res;
   
 }
 
