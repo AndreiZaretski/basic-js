@@ -17,16 +17,22 @@ const { NotImplementedError } = require('../extensions/index.js');
 function isMAC48Address(n) {
   // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
+  // return true;
+//   if (n.length == 0)
+//  return false;
+
 // let res1 = n.split('-');
 
-// if(res1.length !==6) return false;
+// if(!res1.length ===6) return false;
 // if (res1.length ===6) {
 //   for(let i=0; i<6; i++) {
 //     let res2 = res1[i].split('');
 //     if(res2.length ===2){
       
-//         if(res2[0]==='0'||'1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9'||'A'||'B'||'C'||'D'||'E'||'F' 
-//           && res2[1]==='0'||'1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9'||'A'||'B'||'C'||'D'||'E'||'F') 
+//         if(res2[0]==='0'||'1'||'2'||'3'||'4'||'5'||'6'||'7'
+//         ||'8'||'9'||'A'||'B'||'C'||'D'||'E'||'F' 
+//           && res2[1]==='0'||'1'||'2'||'3'||'4'||'5'||'6'
+//           ||'7'||'8'||'9'||'A'||'B'||'C'||'D'||'E'||'F') 
 //           {return true} 
        
 //     } 
@@ -34,52 +40,38 @@ function isMAC48Address(n) {
 // }else {return false}
 // console.log(res1, res2)
 
-// let valid = true;
-// for (let i=0; i<n.length; i++)
-// {
-    
-//     let regex = /^([A-F|0-9]{2}-){5}[A-F|0-9]{2}$/;
-//     if (!regex.test(n[i]))
-//     {
-//  valid = false;
-//  break;
-//     }
-// }
-// return valid;
 
-let valid = true;
-//Проверка входного параметра
-if (!n instanceof Array || n.length == 0)
+ 
+
+let result = true;
+
+if (n.length == 0)
    return false;
-             
+ 
+   let elem1 = n.split('-');
 for (let i=0; i<n.length; i++)
 {
-   // Разбиение mac-адреса на элементы по символу ':'
-   // elementsMacAddress - массив такого формата:
-   //    mac-адрес: 64:A2:C7:B0:D3:B2
-   //    массив: ['64','A2','C7','B0','D3','B2']
-   let elementsMacAddress = n[i].split('-');
-   // В массиве должно быть ровно шесть элементов mac-адреса
-   if (elementsMacAddress.length == 6)
+   
+   if (elem1.length == 6)
    {
-       var regex = /^[A-F|0-9]{2}$/;
-       // Перебор всех компонентов mac-адреса
-       for (let j=0; j<elementsMacAddress.length; j++)
+       let regex = /^[A-F|0-9]{2}$/;
+       
+       for (let j=0; j<elem1.length; j++)
        {
-    if (!regex.test(elementsMacAddress[j]))
+    if (!regex.test(elem1[j]))
            {
-        valid = false;
-        return valid;
+            result = false;
+        return result;
     }
        }
    }
    else
    {
-       valid = false;
+    result = false;
        break;
    }
 }
-return valid;
+return result;
 }
 module.exports = {
   isMAC48Address
