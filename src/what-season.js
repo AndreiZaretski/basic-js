@@ -29,6 +29,12 @@ try {
   throw new Error('Invalid date!')
 }
 
+// if(!date.getMonth()) {
+//   return 'Invalid date!'
+// }
+
+// if (typeof(month) != Number) {res = 'Invalid date!'; return res}
+
   let month= date.getMonth();
   
   // if( month === 11||0||1||00||01) {res = 'winter';

@@ -26,17 +26,28 @@ function getDNSStats(domains) {
   // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
 
-  let x = domains.map((elem)=>{
-    elem.split('.').reverse();
-  });
+  // let x = domains.map((elem)=>{
+  //   elem.split('.').reverse();
+  // });
 
-  let res1 = x[0][0].join('.');
+  // let res1 =`.+${x[0][0].join('')}`;
+  // let res2 = `${res1}+.+${x[0][1].join('')}`
+  // let res3 = `${res2} +.+${x[1][2].join('')}`
 
-  for( i=0; i<domains.length; i++){
-    for (j=0; j<x.length; j++){
-      let 
-    }
+  // for( i=0; i<domains.length; i++){
+  //   for (j=0; j<x.length; j++){
+  //     let 
+  //   }
+  // }
+  for(i=0; i<domains.length; i++) {
+    
   }
+ let result = {
+  res1: x.length,
+  res2: x.length,
+  res3: 1
+ }
+ return result
 }
 
 module.exports = {
