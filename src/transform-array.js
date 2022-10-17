@@ -35,9 +35,11 @@ function transform(arr) {
 
       if (newArr[newArr.length-1] ==='--discard-next') {
         newArr.splice(newArr.length-1, 1);
+        i++;
         continue;
       }
       newArr.splice(i, 2);
+      i++;
       //continue;
       //i--;
       } 
@@ -56,6 +58,7 @@ function transform(arr) {
           continue;
          }
       newArr.splice(i-1, 2);
+      i-=2;
       //continue;
       //i-=2;
       //return newArr;
@@ -64,18 +67,16 @@ function transform(arr) {
      if (newArr[i] === '--double-next') {
       if(newArr[newArr.length-1] === '--double-next') {
         newArr.splice(newArr.length-1, 1);
+        i++;
       //return newArr;
       continue;
       }
       newArr.splice(i, 1, newArr[i+1]);
+      i++;
       //return newArr;
       //continue;
      }  
-    //   else if (newArr[i] === '--double-next' && newArr[i+1] === undefined) {
-    //   newArr.splice(i, 1);
-    //   //return newArr;
-    //   //continue;
-    //  }
+   
 
      if (newArr[i] ==='--double-prev') {
 
