@@ -14,8 +14,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function transform(arr) {
-  // remove line with error and write your code here
-  //throw new NotImplementedError('Not implemented');
+  
 
   if (!Array.isArray(arr)) {
     throw new Error ("'arr' parameter must be an instance of the Array!");
@@ -27,41 +26,81 @@ function transform(arr) {
 
   
   let newArr = arr.slice();
-  //[...arr];
+  //[...arr]
+  
+  
   for (let i = 0; i<newArr.length; i++) {
-    // let newArr = [...arr];
-     if (newArr[i] ==='--discard-next' ) {
-      newArr.splice(newArr[i], 2);
-      return newArr;
-     }
+   
+    if (newArr[i] ==='--discard-next') {
 
-     if (newArr[i] === '--discard-prev') {
-      //newArr = arr.splice(arr[i-1], 2);
-      newArr.splice(newArr[i-1], 2);
-      return newArr;
-     }
+      if (newArr[newArr.length-1] ==='--discard-next') {
+        newArr.splice(newArr.length-1, 1);
+        continue;
+      }
+      newArr.splice(i, 2);
+      //continue;
+      //i--;
+      } 
+
+      if (newArr[i] === '--discard-prev') {
+        if (newArr[0] ==='--discard-prev') {
+          newArr.splice(0, 1);
+          i--;
+          continue;
+         }
+
+         if (newArr[i] === '--discard-prev' && newArr[i-2]==='--discard-next'|| newArr[i] === '--discard-prev' && newArr[i-2]==='--double-next') {
+          newArr.splice(i, 1);
+          i--;
+          //return newArr;
+          continue;
+         }
+      newArr.splice(i-1, 2);
+      //continue;
+      //i-=2;
+      //return newArr;
+     }  
 
      if (newArr[i] === '--double-next') {
-      //arr[i] =arr[i+1];
-      //newArr = arr.splice(arr[i], 1, arr[i+1]);
-      newArr.splice(newArr[i], 1, newArr[i+1]);
-      return newArr;
-     } 
-    //  else if (newArr[i] === '--double-next' && newArr[i+1] === undefined) {
-    //   newArr.splice(newArr[i], 1);
-    //   return newArr;
+      if(newArr[newArr.length-1] === '--double-next') {
+        newArr.splice(newArr.length-1, 1);
+      //return newArr;
+      continue;
+      }
+      newArr.splice(i, 1, newArr[i+1]);
+      //return newArr;
+      //continue;
+     }  
+    //   else if (newArr[i] === '--double-next' && newArr[i+1] === undefined) {
+    //   newArr.splice(i, 1);
+    //   //return newArr;
+    //   //continue;
     //  }
 
      if (newArr[i] ==='--double-prev') {
-      //arr[i] = arr[i-1];
-      //newArr = arr.splice(arr[i], 1, arr[i-1]);
-      newArr.splice(newArr[i], 1, newArr[i-1]);
-      return newArr;
-     } 
-     //else if (newArr[i] ==='--double-prev' && newArr[i-1] === undefined) {
-      //newArr.splice(newArr[i], 1);
+
+      if (newArr[0] ==='--double-prev') {
+        newArr.splice(0, 1);
+        i--;
+        //return newArr;
+       continue;
+       }
+
+       if (newArr[i] ==='--double-prev'&& newArr[i-2]==='--discard-next'|| newArr[i] ==='--double-prev'&& newArr[i-2]==='--double-next') {
+        newArr.splice(i, 1);
+        i--;
+        //return newArr;
+       continue;
+       }
+      newArr.splice(i, 1, newArr[i-1]);
       //return newArr;
-     //}
+     } 
+    //  else if (newArr[i] ==='--double-prev' && newArr[i-1] === undefined) {
+    //   newArr.splice(i, 1);
+    //   i--;
+    //   //continue;
+    //   //return newArr;
+    //  }
   return newArr;
     }
 }
