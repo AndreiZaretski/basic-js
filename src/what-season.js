@@ -12,8 +12,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(date) {
-  // throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+  
   let res;
 
   if (!date) {
@@ -23,17 +22,11 @@ function getSeason(date) {
   throw new Error('Invalid date!');
 }
 
-try {
-  date.getMonth()
-} catch {
+if(!date.getTime) {
   throw new Error('Invalid date!')
 }
 
-// if(!date.getMonth()) {
-//   return 'Invalid date!'
-// }
 
-// if (typeof(month) != Number) {res = 'Invalid date!'; return res}
 
   let month= date.getMonth();
   
