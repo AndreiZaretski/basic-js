@@ -27,13 +27,13 @@ function getDNSStats(domains) {
   
   for(i=0; i<domains.length; i++) {
     let newDomains = domains[i].split('.').reverse();
-    let value = '';
+    let key = '';
     newDomains.forEach(element => {
-      value += `.${element}`;
-     if (result[value]) { 
-      result[value]++; 
+      key += `.${element}`;
+     if (result[key]) { 
+      result[key]++; 
     } else {
-      result[value] = 1;
+      result[key] = 1;
     }
       
     });
