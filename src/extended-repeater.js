@@ -19,30 +19,25 @@ function repeater(str, options) {
   let separator = options.separator ? options.separator: '+',
       repeatTimes= options.repeatTimes ? options.repeatTimes: 1,
       additionSeparator= options.additionSeparator ? options.additionSeparator: '|',
-      additionRepeatTimes = options.additionRepeatTimes ?options.additionRepeatTimes: 1,
-      addition = options.addition ? options.addition: '';
-      //str= String(str);
-      addition = String(options.addition);
-  let arr1 = [];
-  let arr2 =[];
-     // if(addition !==undefined) {
+      additionRepeatTimes = options.additionRepeatTimes ?options.additionRepeatTimes: 1;
+      //addition = options.addition ? options.addition: '';
+      let arr1 = [];
+      let arr2 =[];
         
         for (let i =0; i < additionRepeatTimes; i++) {
-          if(typeof(addition)!=='string') {
-            addition = addition+''
+          if(typeof options.addition !=='string') {
+            options.addition = String(options.addition);
           }
+          if(options.addition=== 'undefined') options.addition ='';
            arr1.push(options.addition)
         }
         let string1 = str + arr1.join(additionSeparator);
-       // let string2= arr1.join(additionSeparator);
-
+       
         for (let j=0; j<repeatTimes; j++) {
             arr2.push(string1);
         }
         
-     // }
-
-      return arr2.join(separator);
+        return arr2.join(separator);
       
 
 
